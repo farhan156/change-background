@@ -1,31 +1,81 @@
 <html>
 <head>
+	<title>Changing the bg color</title>
 
-<title>Changing the bg color</title>
+	<script>
+		var textBold = false;
+
+		function changeText() {
+			if (textBold) {
+				document.getElementById('normal-text').style.display = 'block';
+				document.getElementById('bold-text').style.display = 'none';
+				textBold = false;
+			} else {
+				document.getElementById('normal-text').style.display = 'none';
+				document.getElementById('bold-text').style.display = 'block';
+				textBold = true;
+			}
+		}
+
+		function changeBgColor(color) {
+			document.body.style.backgroundColor = color;
+			if (color == '#342500') {
+				document.getElementById('page-heading').style.color = 'white';
+			} else {
+				document.getElementById('page-heading').style.color = 'black';
+			}
+		}
+	</script>
 </head>
-  
-  <h1> Change Background </hi>
-<body bgcolor="yellow">
-<h3><font color="green">Change the background color</font></h3>
 
-<h3><font face="calibri">Change the background color</font></h3>
+<body style="background-color: #00f000">
+	
+	<h1 id="page-heading" style="text-align: center;"> Change Background </h1>
+	
+	<div style="margin-top: 50px; margin-bottom: 50px;"></div>
 
-<h3><font color="blue">Change the background color</font></h3>
+	<div style="display: flex; justify-content: center;">
+		<div style="margin-left: 2%; margin-right: 2%">
+			<button id="white-button" onclick="changeBgColor('white')" style="background-color: black;">
+				<h3 style="color: white;">Change the background color</h3>
+			</button>
+		</div>
+		<!-- <h3><font face="calibri">Change the background color</font></h3> -->
+		
+		<div style="margin-left: 2%; margin-right: 2%">
+			<button id="dark-gray-button" onclick="changeBgColor('#342500')">
+				<h3 style="color: #342500;">Change the background color</h3>
+			</button>
+		</div>
 
-<h3><font color="red">Change the background color</font></h3>
+		<div style="margin-left: 2%; margin-right: 2%">
+			<button id="blue-button" onclick="changeBgColor('blue')">
+				<h3 style="color: #0000ff;">Change the background color</h3>
+			</button>
+		</div>
 
-  <p> Use light colours always</P>
+		<div style="margin-left: 2%; margin-right: 2%">
+			<button id="reset-button" onclick="changeBgColor('00f000')">
+				<h3 style="color: #00f000;">Reset the background color</h3>
+			</button>
+		</div>
+	</div>
 
+	<div style="margin-top: 50px; margin-bottom: 50px;"></div>
 
-  
-
-
-
-
-<p>This text is normal NOW.</p>
-
-<p><b>LOOK This text is bold NOW.</b></p>
-  <p>Pamodh was here</p>
+	<div style="margin: 10px">
+		<button onclick="changeText()">
+			<h4>Change Text</h4>
+		</button>
+	
+		<div id="normal-text" style="margin-top: 50px; margin-bottom: 50px; padding: 1%; background-color: whitesmoke;">
+			<p >This text is normal NOW.</p>
+		</div>
+	
+		<div id="bold-text" style="margin-top: 50px; margin-bottom: 50px; padding: 1%; background-color: whitesmoke; display: none;">
+			<p><b>LOOK This text is bold NOW.</b></p>
+		</div>
+	</div>
 
 </body>
 
